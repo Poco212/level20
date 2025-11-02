@@ -75,6 +75,9 @@ vgcreate proc /dev/mapper/proc
 lvcreate -L 10G proc -n root
 ```
 ```
+mkfs.ext4 -b 4096 /dev/proc/root
+```
+```
 mount /dev/proc/root /mnt
 ```
 #### boot
@@ -92,6 +95,9 @@ mount -o uid=0,gid=0,fmask=0077,dmask=0077 /dev/nvmw0n1p1 /mnt/boot
 lvcreate -L 15G proc -n opts
 ```
 ```
+mkfs.ext4 -b 4096 /dev/proc/opts
+```
+```
 mkdir /mnt/opt
 ```
 ```
@@ -100,6 +106,9 @@ mount -o rw,nodev,nosuid,relatime /dev/proc/opts /mnt/opt
 #### proc vars
 ```
 lvcreate -L 2G proc -n vars
+```
+```
+mkfs.ext4 -b 4096 /dev/proc/vars
 ```
 ```
 mkdir /mnt/var
@@ -112,6 +121,9 @@ mount -o rw,nodev,noexec,nosuid,relatime /dev/proc/vars /mnt/var
 lvcreate -L 512M proc -n libs
 ```
 ```
+mkfs.ext4 -b 4096 /dev/proc/libs
+```
+```
 mkdir /mnt/var/usr
 ```
 ```
@@ -120,6 +132,9 @@ mount -o rw,nodev,noexec,nosuid,relatime /dev/proc/libs /mnt/var/usr
 #### proc game
 ```
 lvcreate -L 512M proc -n game
+```
+```
+mkfs.ext4 -b 4096 /dev/proc/game
 ```
 ```
 mkdir /mnt/var/games
@@ -132,6 +147,9 @@ mount -o rw,nodev,noexec,nosuid,relatime /dev/proc/game /mnt/var/games
 lvcreate -L 1G proc -n vlog
 ```
 ```
+mkfs.ext4 -b 4096 /dev/proc/vlog
+```
+```
 mkdir /mnt/var/log
 ```
 ```
@@ -140,6 +158,9 @@ mount -o rw,nodev,noexec,nosuid,relatime /dev/proc/vlog /mnt/var/log
 #### proc vaud
 ```
 lvcreate -L 256M proc -n vaud
+```
+```
+mkfs.ext4 -b 4096 /dev/proc/vaud
 ```
 ```
 mkdir /mnt/var/log/audit
@@ -152,6 +173,9 @@ mount -o rw,nodev,noexec,nosuid,relatime /dev/proc/vaud /mnt/var/log/audit
 lvcreate -L 2G proc -n vtmp
 ```
 ```
+mkfs.ext4 -b 4096 /dev/proc/vtmp
+```
+```
 mkdir /mnt/var/tmp
 ```
 ```
@@ -160,6 +184,9 @@ mount -o rw,nodev,noexec,nosuid,relatime /dev/proc/vtmp /mnt/var/tmp
 #### proc vpac
 ```
 lvcreate -L 2G proc -n vpac
+```
+```
+mkfs.ext4 -b 4096 /dev/proc/vpac
 ```
 ```
 mkdir -p /mnt/var/cache/pacman
@@ -188,6 +215,9 @@ lvcreate -l100%FREE proc -n docs
 mkfs.ext4 -b 4096 /dev/proc/docs
 ```
 ```
+mkfs.ext4 -b 4096 /dev/proc/docs
+```
+```
 mkdir -p /mnt/srv /mnt/srv/http
 ```
 ```
@@ -200,7 +230,7 @@ mount -o rw,nodev,noexec,nosuid,relatime /dev/proc/docs /mnt/srv/http
 lvcreate -L 20G  data -n pods
 ```
 ```
-mkfs.ext4 -b 4096 /dev/data/pods
+mkfs.btrfs /dev/data/pods
 ```
 ```
 mkdir -p /mnt/var/lib /mnt/var/lib/containers
