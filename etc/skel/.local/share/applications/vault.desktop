@@ -1,8 +1,0 @@
-[Desktop Entry]
-        Version=1.0
-        Name=Blackbox
-        Icon=/home/loki/silo/spawn/vault.png
-        Exec=qemu-system-x86_64 -enable-kvm -m 4G -smp 4 -machine q35 -cpu host -device intel-hda -device hda-duplex -device virtio-vga-gl -rtc base=utc -display gtk,gl=on,show-cursor=on -usb -device usb-tablet -hda /home/loki/silo/spawn/vault.img
-        Type=Application
-        Terminal=false
-        Keywords=Game;Emulators;

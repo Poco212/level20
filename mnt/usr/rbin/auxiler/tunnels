@@ -1,0 +1,7 @@
+#!/bin/bash
+
+
+### show tunnel list
+function skypath() {
+	cloudflared tunnel list | tail -n +2
+}

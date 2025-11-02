@@ -1,0 +1,10 @@
+[Unit]
+Description=Run the system update daily
+
+[Timer]
+OnCalendar=hourly
+Persistent=true
+Unit=update.service
+
+[Install]
+WantedBy=timers.target

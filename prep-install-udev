@@ -1,0 +1,15 @@
+#!/bin/bash
+
+pacstrap /mnt linux-hardened linux-firmware mkinitcpio base lvm2 btrfs-progs bubblewrap-suid --noconfirm
+pacstrap /mnt sudo debugedit fakeroot pkgconf bison gcc pcre flex wget make gcc curl --noconfirm
+pacstrap /mnt uwsm hyprland hyprpicker hyprshot hypridle hyprlock hyprpolkitagent xdg-desktop-portal-hyprland qt5-wayland qt6-wayland wl-clipboard cliphist mailcap brightnessctl --noconfirm
+pacstrap /mnt mako waybar wofi mpd mpc --noconfirm
+pacstrap /mnt pipewire pipewire-pulse pipewire-jack wireplumber pavucontrol --noconfirm
+pacstrap /mnt nautilus nautilus-image-converter sushi --noconfirm
+pacstrap /mnt ttf-jetbrains-mono-nerd ttf-droid --noconfirm
+pacstrap /mnt kitty kitty-terminfo neovim --noconfirm
+pacstrap /mnt gnome-keyring libsecret libpwquality cracklib polkit iptables-nft firewalld apparmor --noconfirm
+pacstrap /mnt tang clevis mkinitcpio-nfs-utils luksmeta  --noconfirm
+pacstrap /mnt tuned tuned-ppd openssh rsync git btop less --noconfirm
+pacstrap /mnt go hugo nginx --noconfirm
+pacstrap /mnt intel-ucode --noconfirm
