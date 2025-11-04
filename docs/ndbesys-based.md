@@ -623,7 +623,7 @@ mkdir -p /opt/flat
 ln -sf /opt/flat /var/lib/flatpak
 ```
 ```
-pacstrap /mnt flatpak gnome-software --noconfirm 
+pacman /mnt flatpak gnome-software --noconfirm 
 ```
 ```
 flatpak install --system -y --noninteractive flathub \
