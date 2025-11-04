@@ -641,7 +641,7 @@ systemctl enable --global gcr-ssh-agent.socket &&
 systemctl enable --global hypridle.service &&
 systemctl enable --global hyprpolkitagent &&
 systemctl enable --global waybar &&
-systemctl enable --global pipewire-pulse &&
+systemctl enable --global pipewire-pulse
 ```
 
 ## 8. finishing
