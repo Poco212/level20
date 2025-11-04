@@ -15,7 +15,7 @@
 
 **notes**:
 - gunakan fdisk, cfdisk, parted untuk membuat physical volume sesuai dengan guideline
-- minimum size untuk perangkat dengan kartu grafis nvidia sebesar `1.5GB`
+- minimum size `partition 1` untuk perangkat dengan kartu grafis nvidia sebesar `1.5GB`
 
 ### logical volume
 
@@ -683,6 +683,7 @@ umount -R /mnt
 ```
 reboot
 ```
+
 
 
 
