@@ -272,7 +272,7 @@ mount -o rw,nodev,noexec,nosuid,relatime /dev/data/home /mnt/home
 **Technical Procedure**
 **1. network**
 ```
-pacstrap /mnt tang openssh ethtool iptables-nft firewalld --noconfirm
+pacstrap /mnt openssh ethtool iptables-nft firewalld --noconfirm
 ```
 **2. kernel**
 ```
@@ -280,7 +280,7 @@ pacstrap /mnt linux-hardened linux-firmware mkinitcpio base lvm2 btrfs-progs bub
 ```
 **3. devel**
 ```
-pacstrap /mnt sudo debugedit fakeroot pkgconf bison gcc pcre flex wget make gcc curl less --noconfirm
+pacstrap /mnt sudo debugedit fakeroot pkgconf bison gcc pcre flex wget make curl less --noconfirm
 ```
 **4. audio system**
 ```
@@ -362,6 +362,11 @@ for amd
 ```
 pacstrap /mnt amd-ucode --noconfirm
 ```
+***16. nbde system**
+```
+pacstrap /mnt tang clevis mkinitcpio-nfs-utils luksmeta ethtool
+```
+
 
 ### preconfing
 **1.fstab**
@@ -677,3 +682,4 @@ umount -R /mnt
 ```
 reboot
 ```
+
