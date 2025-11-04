@@ -6,10 +6,10 @@
 ### physical volume
 
 **disk layout**
-| disk | partition | type              | luks  | lvm   | label    |  format | mount      |
-| ---- | --------- | ----------------- | ----- | ----- | -------- |  ------ | ---------- |
-| 0    | 1         | efi               | false | false | boot     |  fat 32 | /boot      |
-| 0    | 2         | linux file system | true  | false | keys     |  luks   | none       |
+| disk | partition | type              | luks  | lvm   | label    |  format | mount           |
+| ---- | --------- | ----------------- | ----- | ----- | -------- |  ------ | --------------- |
+| 0    | 1         | efi               | false | false | boot     |  fat 32 | /boot           |
+| 0    | 2         | linux file system | true  | false | keys     |  luks   | none            |
 | 0    | 3         | linux filesystems | true  | true  | proc     |  luks   | see volume proc |
 | 0    | 4         | linux home        | true  | true  | data     |  luks   | see volume data |
 
@@ -674,4 +674,5 @@ umount -R /mnt
 ```
 reboot
 ```
+
 
