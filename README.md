@@ -570,21 +570,8 @@ cd aide-0.19.2
 make && make install
 ```
 ```
-cd .. && rm aide-0.19.2
+cd .. && rm -fr aide-0.19.2
 ```
-### network
-```
-nvim /etc/systemd/network/20-ethernet.network
-```
-Ganti `[IP]` denga ip address yang diberikan untuk perangkat anda
-```
-[Network]
-Address=[IP]/24
-Gateway=10.10.1.1
-DNS=1.1.1.1 8.8.8.8
-MulticastDNS=yes
-```
-
 ### booting
 
 ```
@@ -629,7 +616,7 @@ mkdir -p /opt/flat
 ln -sf /opt/flat /var/lib/flatpak
 ```
 ```
-pacstrap /mnt flatpak gnome-software --noconfirm 
+pacman /mnt flatpak gnome-software --noconfirm 
 ```
 ```
 flatpak install --system -y --noninteractive flathub \
@@ -700,6 +687,7 @@ umount -R /mnt
 ```
 reboot
 ```
+
 
 
 
