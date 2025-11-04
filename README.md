@@ -395,7 +395,7 @@ cp -fr /mnt/opt/config/sysd /mnt
 ### network
  - ethernet
 ```
-cp /etc/system/network/* /mnt/etc/systemd/network/
+cp /etc/systemd/network/* /mnt/etc/systemd/network/
 ```
 - wireless
 ```
@@ -706,6 +706,7 @@ umount -R /mnt
 ```
 reboot
 ```
+
 
 
 
