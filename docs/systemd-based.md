@@ -589,36 +589,6 @@ ln -sf /opt/flat /var/lib/flatpak
 ```
 pacman /mnt flatpak gnome-software --noconfirm 
 ```
-```
-flatpak install --system -y --noninteractive flathub \
-    org.mozilla.firefox \
-    com.google.Chrome \
-    com.visualstudio.code \
-    de.wagnermartin.Plattenalbum \
-    md.obsidian.Obsidian \
-    org.gnome.Evolution \
-    org.gnome.Calculator \
-    com.github.tchx84.Flatseal \
-    org.keepassxc.KeePassXC \
-    org.telegram.desktop \
-    org.gnome.World.Secrets \
-    com.mongodb.Compass \
-    io.beekeeperstudio.Studio \
-    fr.free.Homebank
-```
-```
-flatpak override --filesystem=$HOME/.themes
-```
-```
-flatpak override --filesystem=$HOME/.icons
-```
-```
-flatpak override --env=GTK_THEME=flow
-```
-```
-flatpak override --env=ICON_THEME=eggs
-```
-
 ## 7. Service
 ```
 systemctl enable systemd-timesyncd.service &&
@@ -653,6 +623,38 @@ umount -R /mnt
 ```
 ```
 reboot
+```
+
+## 9 firstboot
+
+```
+flatpak install --system -y --noninteractive flathub \
+    org.mozilla.firefox \
+    com.google.Chrome \
+    com.visualstudio.code \
+    de.wagnermartin.Plattenalbum \
+    md.obsidian.Obsidian \
+    org.gnome.Evolution \
+    org.gnome.Calculator \
+    com.github.tchx84.Flatseal \
+    org.keepassxc.KeePassXC \
+    org.telegram.desktop \
+    org.gnome.World.Secrets \
+    com.mongodb.Compass \
+    io.beekeeperstudio.Studio \
+    fr.free.Homebank
+```
+```
+flatpak override --filesystem=$HOME/.themes
+```
+```
+flatpak override --filesystem=$HOME/.icons
+```
+```
+flatpak override --env=GTK_THEME=flow
+```
+```
+flatpak override --env=ICON_THEME=eggs
 ```
 
 
