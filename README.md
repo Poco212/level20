@@ -324,6 +324,7 @@ pacstrap /mnt prometheus prometheus-node-exporter btop --noconfirm
 ```
 pacstrap /mnt tang openssh ethtool iptables-nft firewalld --noconfirm
 ```
+
 ethernet
 ```
 cp /etc/system/network/* /mnt/etc/systemd/network/
@@ -857,6 +858,7 @@ git clone https://github.com/blackbird-package/level10.git /tmp/config
 ```
 cp -fr /tmp/config/* /
 ```
+
 
 
 
