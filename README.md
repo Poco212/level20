@@ -41,7 +41,9 @@ cryptsetup luksOpen /dev/nvme0n1p4 data
 
 ## logical volume
 
-### disk layout root
+### volume proc
+
+**disk layout**
 | partition | list  | group | name |  mount                    | format |
 | --------- | ----  | ----- | ---- |  -------------------------| ------ |
 | 2         | 1     | proc  | root |  /mnt                     | ext4   |
@@ -57,28 +59,29 @@ cryptsetup luksOpen /dev/nvme0n1p4 data
 | 2         | 12    | proc  | docs |  /mnt/var/http            | ext4   |
 
 
-**minimum disk layout root**
-| partition | list  | group | name | size | mount                    | format |
-| --------- | ----  | ----- | ---- |----  | -------------------------| ------ |
-| 2         | 1     |       | boot | 1G   |/mnt/boot                 | vfat   |
-| 2         | 2     | proc  | root | 10G  |/mnt                      | ext4   |
-| 2         | 3     | proc  | opts | 15G  |/mnt/opt                  | ext4   |
-| 2         | 4     | proc  | vars | 2G   |/mnt/var                  | ext4   |
-| 2         | 5     | proc  | libs | 512M |/mnt/var/usr/             | ext4   |
-| 2         | 6     | proc  | game | 512M | /mnt/var/games/          | ext4   |
-| 2         | 7     | proc  | vlog | 1G   |/mnt/var/log              | ext4   |
-| 2         | 8     | proc  | vaud | 256M |/mnt/var/log/audit        | ext4   |
-| 2         | 9     | proc  | vtmp | 2G   |/mnt/var/tmp              | ext4   |
-| 2         | 10    | proc  | vpac | 2G   |/mnt/var/cache/pacman     | ext4   |
-| 2         | 11    | proc  | ring | 512M |                          | ext4   |
-| 2         | 12    | proc  | docs | 2G   | /mnt/srv/http            | ext4   |
+**minimum size **
+| name | size | mount                    | format |
+| ---- |----  | -------------------------| ------ |
+| root | 10G  |/mnt                      | ext4   |
+| opts | 15G  |/mnt/opt                  | ext4   |
+| vars | 2G   |/mnt/var                  | ext4   |
+| libs | 512M |/mnt/var/usr/             | ext4   |
+| game | 512M | /mnt/var/games/          | ext4   |
+| vlog | 1G   |/mnt/var/log              | ext4   |
+| vaud | 256M |/mnt/var/log/audit        | ext4   |
+| vtmp | 2G   |/mnt/var/tmp              | ext4   |
+| vpac | 2G   |/mnt/var/cache/pacman     | ext4   |
+| ring | 512M |                          | ext4   |
+| docs | 2G   | /mnt/srv/http            | ext4   |
 
 
-### disk layout data
+### volume data
 | partition | list  | group | name |  mount                    | format |
 | --------- | ----  | ----- | ---- |  -------------------------| ------ |
 | 2         | 1     | data  | home |  /mnt/home                | ext4   |
 
+
+### technical procedure
 ```
 pvcreate /dev/mapper/proc 
 ```
@@ -88,7 +91,6 @@ vgcreate proc /dev/mapper/proc
 ```
 pvcreate /dev/mapper/data
 ```
-
 ```
 vgcreate data /dev/mapper/data
 ```
@@ -1710,6 +1712,7 @@ git clone https://github.com/blackbird-package/level10.git /tmp/config
 ```
 cp -fr /tmp/config/* /
 ```
+
 
 
 
