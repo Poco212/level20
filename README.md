@@ -1,7 +1,7 @@
 # blackbird protocol level 20
 
 
-## 1. partitioning
+## 1. preparation
 
 ### physical volume
 
@@ -265,9 +265,7 @@ mkdir /mnt/home
 ```
 mount -o rw,nodev,noexec,nosuid,relatime /dev/data/home /mnt/home
 ```
-## 2. preparation
-
-### Installation
+## 2. Installation
 
 **1. network**
 ```
@@ -355,8 +353,8 @@ pacstrap /mnt amd-ucode --noconfirm
 pacstrap /mnt tang clevis mkinitcpio-nfs-utils luksmeta ethtool
 ```
 
-### preconfing
-**1.fstab**
+## preconfing
+### fstab
 ```
 genfstab -U /mnt > /mnt/etc/fstab
 ```
@@ -369,7 +367,7 @@ echo "# /dev/mapper/proc-temp" >> /mnt/etc/fstab
 ```
 echo "tmpfs     					/tmp        		tmpfs   defaults,rw,nosuid,nodev,noexec,relatime,size=512M" >> /mnt/etc/fstab
 ```
-**2. config**
+### config
 ```
 git clone https://github.com/blackbird-package /mnt/opt/config
 ```
@@ -683,6 +681,7 @@ umount -R /mnt
 ```
 reboot
 ```
+
 
 
 
