@@ -495,6 +495,9 @@ useradd -m nama_user
 echo 'nama_user ALL=(ALL:ALL) ALL' >> /etc/sudoers.d/none
 ```
 ```
+sudo chattr +i /etc/sudoers.d/none
+```
+```
 passwd nama_user
 ```
 ```
@@ -697,6 +700,7 @@ umount -R /mnt
 ```
 reboot
 ```
+
 
 
 
