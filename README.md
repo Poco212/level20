@@ -396,9 +396,6 @@ cp /etc/system/network/* /mnt/etc/systemd/network/
 ```
 - wireless
 ```
-pacstrap /mnt iwd --noconfirm 
-```
-```
 mkdir -p /mnt/var/lib/iwd/ 
 ```
 ```
@@ -693,6 +690,7 @@ umount -R /mnt
 ```
 reboot
 ```
+
 
 
 
