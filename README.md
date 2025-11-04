@@ -412,12 +412,11 @@ arch-chroot /mnt
 
 ## 4. postconfig
 
-### based
-#### hostname 
+### hostname 
 ```
 echo 'nama_hostname' > /etc/hostname
 ```
-#### locatime 
+### locatime 
 ```
 ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 ```
@@ -437,7 +436,7 @@ timedatectl status
 systemctl enable systemd-timesyncd.service
 ```
 
-#### locale 
+### locale 
 ```
 locale-gen
 ```
@@ -694,6 +693,7 @@ umount -R /mnt
 ```
 reboot
 ```
+
 
 
 
