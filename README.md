@@ -75,13 +75,7 @@ cryptsetup luksOpen /dev/nvme0n1p4 data
 | docs | 2G   | /mnt/srv/http            | ext4   |
 
 
-### volume data
-| partition | list  | group | name |  mount                    | format |
-| --------- | ----  | ----- | ---- |  -------------------------| ------ |
-| 2         | 1     | data  | home |  /mnt/home                | ext4   |
-
-
-### technical procedure
+**technical procedure**
 ```
 pvcreate /dev/mapper/proc 
 ```
@@ -95,7 +89,7 @@ pvcreate /dev/mapper/data
 vgcreate data /dev/mapper/data
 ```
 
-### root
+**1. root**
 ```
 lvcreate -L 10G proc -n root
 ```
@@ -105,7 +99,8 @@ mkfs.ext4 -b 4096 /dev/proc/root
 ```
 mount /dev/proc/root /mnt
 ```
-### boot
+**2. boot**
+
 ```
 mkfs.vfat -F32 -S 4096 -n BOOT [ partition path ]
 ```
@@ -115,7 +110,7 @@ mkdir /mnt/boot
 ```
 mount -o uid=0,gid=0,fmask=0077,dmask=0077 [ path boot partition ] /mnt/boot
 ```
-### opts
+**3. opts**
 ```
 lvcreate -L 15G proc -n opts
 ```
@@ -128,7 +123,7 @@ mkdir /mnt/opt
 ```
 mount -o rw,nodev,nosuid,relatime /dev/proc/opts /mnt/opt
 ```
-### vars
+**4. vars**
 ```
 lvcreate -L 2G proc -n vars
 ```
@@ -141,7 +136,7 @@ mkdir /mnt/var
 ```
 mount -o rw,nodev,noexec,nosuid,relatime /dev/proc/vars /mnt/var
 ```
-### libs
+**5. libs**
 ```
 lvcreate -L 512M proc -n libs
 ```
@@ -154,7 +149,7 @@ mkdir /mnt/var/usr
 ```
 mount -o rw,nodev,noexec,nosuid,relatime /dev/proc/libs /mnt/var/usr
 ```
-### game
+**6. game**
 ```
 lvcreate -L 512M proc -n game
 ```
@@ -167,7 +162,7 @@ mkdir /mnt/var/games
 ```
 mount -o rw,nodev,noexec,nosuid,relatime /dev/proc/game /mnt/var/games
 ```
-### vlog
+**7. vlog**
 ```
 lvcreate -L 1G proc -n vlog
 ```
@@ -180,7 +175,7 @@ mkdir /mnt/var/log
 ```
 mount -o rw,nodev,noexec,nosuid,relatime /dev/proc/vlog /mnt/var/log
 ```
-### vaud
+**8. vaud**
 ```
 lvcreate -L 256M proc -n vaud
 ```
@@ -193,7 +188,7 @@ mkdir /mnt/var/log/audit
 ```
 mount -o rw,nodev,noexec,nosuid,relatime /dev/proc/vaud /mnt/var/log/audit
 ```
-### vtmp
+**9. vtmp**
 ```
 lvcreate -L 2G proc -n vtmp
 ```
@@ -206,7 +201,7 @@ mkdir /mnt/var/tmp
 ```
 mount -o rw,nodev,noexec,nosuid,relatime /dev/proc/vtmp /mnt/var/tmp
 ```
-### vpac
+**10. vpac**
 ```
 lvcreate -L 2G proc -n vpac
 ```
@@ -219,7 +214,7 @@ mkdir -p /mnt/var/cache/pacman
 ```
 mount -o rw,nodev,noexec,nosuid,relatime /dev/proc/vpac /mnt/var/cache/pacman
 ```
-### ring
+**11. ring**
 ```
 lvcreate -L 512M proc -n ring
 ```
@@ -232,7 +227,7 @@ cryptsetup luksOpen /dev/proc/ring proc_keys
 ```
 mkfs.ext4 -b 4096 /dev/mapper/proc_keys
 ```
-### docs
+**12. docs**
 ```
 lvcreate -l100%FREE proc -n docs
 ```
@@ -245,6 +240,12 @@ mkdir -p /mnt/srv /mnt/srv/http
 ```
 mount -o rw,nodev,noexec,nosuid,relatime /dev/proc/docs /mnt/srv/http
 ```
+
+### volume data
+| partition | list  | group | name |  mount                    | format |
+| --------- | ----  | ----- | ---- |  -------------------------| ------ |
+| 2         | 1     | data  | home |  /mnt/home                | ext4   |
+
 ### home
 ```
 lvcreate -L [ size in G | M ] data -n home
@@ -1712,6 +1713,7 @@ git clone https://github.com/blackbird-package/level10.git /tmp/config
 ```
 cp -fr /tmp/config/* /
 ```
+
 
 
 
