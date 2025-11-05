@@ -46,8 +46,8 @@ function blackbird_admin_login_notif() {
 TOKEN="8236498641:AAG7jKXnTY3Rs_cL2zu5tOdj6grarxY4zFg"
 
 # Replace with the chat ID of the recipient (user or group)
-CHAT_ID="7635684545"
-
+SYSTEM_ID="7635684545"
+GOURPS_ID="-1003185146595"
 #The message you want to send
 TIMERSE=$(date)
 MESSAGE="
@@ -60,8 +60,14 @@ Timestamp : $TIMERSE
 
 # Send the message using curl
 curl -s -X POST "https://api.telegram.org/bot$TOKEN/sendMessage" \
-        -d chat_id="$CHAT_ID" \
+        -d chat_id="$SYSTEM_ID" \
         -d parse_mode=HTML \
         -d text="$MESSAGE" > /dev/null
 }
+curl -s -X POST "https://api.telegram.org/bot$TOKEN/sendMessage" \
+        -d chat_id="$GOURPS_ID" \
+        -d parse_mode=HTML \
+        -d text="$MESSAGE" > /dev/null
+}
+
 blackbird_admin_login_notif;
