@@ -19,7 +19,6 @@ append_path '/usr/bin'
 
 # Force PATH to be environment
 export PATH
-source /usr/local/rbin/loaders
 
 # 
 # Load profiles from /etc/profile.d
