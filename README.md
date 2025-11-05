@@ -300,7 +300,9 @@ pacstrap /mnt pipewire pipewire-pulse pipewire-jack wireplumber pavucontrol sof-
 ```
 pacstrap /mnt brightnessctl
 ```
-
+```
+pacstrap /mnt flatpak gnome-software --noconfirm 
+```
 **6. desktop**
 ```
 pacstrap /mnt uwsm hyprland hyprpicker hyprshot hypridle hyprlock hyprpolkitagent xdg-desktop-portal-hyprland qt5-wayland qt6-wayland wl-clipboard cliphist mailcap sddm --noconfirm
@@ -616,9 +618,7 @@ mkdir -p /opt/flat
 ```
 ln -sf /opt/flat /var/lib/flatpak
 ```
-```
-pacman /mnt flatpak gnome-software --noconfirm 
-```
+
 
 ## 7. Service
 ```
@@ -683,6 +683,7 @@ flatpak override --env=GTK_THEME=flow
 ```
 flatpak override --env=ICON_THEME=eggs
 ```
+
 
 
 
