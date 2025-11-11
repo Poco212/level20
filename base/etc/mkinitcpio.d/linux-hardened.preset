@@ -2,12 +2,14 @@
 
 ALL_config="/etc/mkinitcpio.d/default.conf"
 ALL_kver="/boot/kernel/vmlinuz-linux-hardened"
+ALL_kerneldest="/boot/kernel/vmlinuz-linux-hardened"
 
 PRESETS=('default')
+#PRESETS=('default' 'fallback')
 
 #default_config="/etc/mkinitcpio.conf"
 #default_image="/boot/initramfs-linux-hardened.img"
-default_uki="/boot/efi/linux/blackbird-hardened.efi"
+default_uki="/boot/efi/linux/blackraven-hardened.efi"
 #default_options="--splash /usr/share/systemd/bootctl/splash-arch.bmp"
 
 #fallback_config="/etc/mkinitcpio.conf"
