@@ -1,0 +1,36 @@
+# /usr/lib/systemd/system/irqbalance.service
+[Unit]
+Description=irqbalance daemon
+Documentation=man:irqbalance(1)
+Documentation=https://github.com/Irqbalance/irqbalance
+ConditionVirtualization=!container
+ConditionCPUs=>1
+
+[Service]
+EnvironmentFile=-/usr/lib/irqbalance/defaults.env
+EnvironmentFile=-/etc/irqbalance.env
+ExecStart=/usr/bin/irqbalance $IRQBALANCE_ARGS
+CapabilityBoundingSet=
+NoNewPrivileges=yes
+ProtectSystem=strict
+ReadOnlyPaths=/
+ReadWritePaths=/proc/irq
+RestrictAddressFamilies=AF_UNIX AF_NETLINK
+RuntimeDirectory=irqbalance/
+IPAddressDeny=any
+ProtectHome=true
+PrivateTmp=yes 
+PrivateNetwork=yes
+PrivateUsers=true
+ProtectHostname=yes 
+ProtectClock=yes 
+ProtectKernelModules=yes 
+ProtectKernelLogs=yes 
+ProtectControlGroups=yes 
+RestrictNamespaces=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+RemoveIPC=yes
+PrivateMounts=yes
