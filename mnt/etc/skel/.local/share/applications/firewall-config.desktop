@@ -154,4 +154,4 @@ Exec=/usr/bin/firewall-config
 Type=Application
 StartupNotify=true
 Terminal=false
-NoDisplay=true
+NoDisplay=false
