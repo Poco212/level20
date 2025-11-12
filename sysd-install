@@ -50,10 +50,10 @@ fi
 sleep 3 && clear &&
 echo "level 31" &&
 if [[ ! -z $( cat /proc/cpuinfo | grep "Intel" )  ]];then
-    $ucodes="intel-ucode"
+    $ucodes=intel-ucode
 fi
 if [[ ! -z $( cat /proc/cpuinfo | grep "AMD" )  ]];then
-   $ucodes="amd-ucode"
+   $ucodes=amd-ucode
 fi
 
 
